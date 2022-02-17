@@ -61,9 +61,29 @@
 58. [4Sum II](https://leetcode.com/problems/4sum-ii/)
 59. [Binary Tree Find Bottom Left Value](https://leetcode.com/problems/find-bottom-left-tree-value/)
 60. [Contiguous Array](https://leetcode.com/problems/contiguous-array/)
-
-
-
+61. [K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)
+62. [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
+63. [Permutation in String](https://leetcode.com/problems/permutation-in-string/)
+64. [Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array/)
+65. [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+66. [Binary Search Tree Insertion](https://leetcode.com/problems/insert-into-a-binary-search-tree/)
+67. [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
+68. [Delete and Earn](https://leetcode.com/problems/delete-and-earn/)
+69. [Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)
+70. [Binary String With Substrings Representing 1 To N](https://leetcode.com/problems/binary-string-with-substrings-representing-1-to-n/)
+71. [Car Pooling](https://leetcode.com/problems/car-pooling/)
+72. [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+73. [Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold/)
+74. [Binary Search Trees All Elements](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)
+75. [Maximum Matrix Sum](https://leetcode.com/problems/maximum-matrix-sum/)
+76. [Minimum Swaps to Group All 1's Together II](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/)
+77. [Minimum Moves to Reach Target Score](https://leetcode.com/problems/minimum-moves-to-reach-target-score/)
+78. [All Divisions With the Highest Score of a Binary Array](https://leetcode.com/problems/all-divisions-with-the-highest-score-of-a-binary-array/)
+79. [Minimum Cost to Set Cooking Time](https://leetcode.com/problems/minimum-cost-to-set-cooking-time/)
+80. [Smallest Value of the Rearranged Number](https://leetcode.com/problems/smallest-value-of-the-rearranged-number/)
+81. [Design Bitset](https://leetcode.com/problems/design-bitset/)
+82. [Minimum Operations to Make the Array Alternating](https://leetcode.com/problems/minimum-operations-to-make-the-array-alternating/)
+83. [Removing Minimum Number of Magic Beans](https://leetcode.com/problems/removing-minimum-number-of-magic-beans/)
 
 ## Easy
 
