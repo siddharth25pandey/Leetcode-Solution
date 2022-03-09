@@ -32,17 +32,26 @@ public:
             m[ptr->val]++;
             ptr=ptr->next;
         }
-        /*for(auto i:m)
-        {
-            cout <<i.first<<" "<<i.second<<endl;
-        }*/
-        ListNode* ans= NULL;
+        
+        ListNode* ans=NULL,*res=NULL;
         for(auto i:m)
         {   
             if(i.second==1)
-            insertattail(ans,i.first);
+            {
+                 if(ans==NULL)
+                {
+                    ans= new ListNode(i.first);
+                    res=ans;
+                }
+                else 
+                {
+                    ans->next= new ListNode(i.first);
+                    ans=ans->next;
+                }
+            }
+            //insertattail(ans,i.first);
         }
        
-        return ans;
+        return res;
     }
 };
