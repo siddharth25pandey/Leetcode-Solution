@@ -4,8 +4,8 @@ public:
         vector<int>steps;
 /*steps.push_back(1);
 steps.push_back(2);*/
-long first=1, second=2;
-long res=0;
+int first=1, second=2;
+int res=0;
     if(n==1) return 1;
         if(n==2) return 2;
 for(int i=3;i<=n;i++)
