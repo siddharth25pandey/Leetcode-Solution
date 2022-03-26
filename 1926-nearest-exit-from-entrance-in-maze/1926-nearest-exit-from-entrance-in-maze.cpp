@@ -9,7 +9,7 @@ public:
         
         queue<pair<int, int>>q;
         q.push({srcx, srcy});
-        mat[srcx][srcy] = '+';
+        // mat[srcx][srcy] = '+';
         dis[srcx][srcy] = 0;
         vector<int>dx = {1, 0 , -1 , 0};
         vector<int>dy = {0 , 1, 0 , -1};
@@ -27,7 +27,7 @@ public:
                         return dis[newx][newy];
                     }
                     q.push({newx, newy});
-                    mat[newx][newy]='+';
+                    // mat[newx][newy]='+';
                 }
             }
             
