@@ -17,7 +17,7 @@ public:
                 i++;
                 j--;
             }else{
-                return ispalindrome(s, i+1, j) || ispalindrome(s, i, j-1);
+                return ispalindrome(s, i+1, j) or ispalindrome(s, i, j-1);
             }
         }
         return true;
