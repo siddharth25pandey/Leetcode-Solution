@@ -11,7 +11,7 @@ public:
             m[fruits[j]]++;
             if(m.size()<=k)
             {
-                maxi=max(maxi,(j-i+1));j++;
+                maxi=max(maxi,(j-i+1));
             }
             else if(m.size()>k)
             {
@@ -22,9 +22,9 @@ public:
                 i++;
                 }
                 
-              
-                j++;
             }
+                j++;
+            
             
         }
         return maxi;
