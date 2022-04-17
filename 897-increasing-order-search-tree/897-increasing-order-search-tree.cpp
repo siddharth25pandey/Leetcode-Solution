@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
     void inorder(TreeNode* root, vector<int>&v)
     {
@@ -25,21 +26,23 @@ class Solution {
     }
 public:
     TreeNode* increasingBST(TreeNode* root) {
-        TreeNode* ptr=NULL, *temp=NULL;
+        TreeNode* ans=NULL, *res=NULL;
         vector<int>v;
        inorder(root,v);
         for(int i = 0;i<v.size();i++)
         {
-            if(ptr==NULL){
-                ptr = new TreeNode(v[i]);
-                temp = ptr;
-            }else{
-                 ptr->right =  new TreeNode(v[i]);
-                ptr=ptr->right;
-            }
-          
-           
+         
+             if(ans==NULL)
+                {
+                    ans= new TreeNode(v[i]);
+                    res=ans;
+                }
+                else 
+                {
+                    ans->right= new TreeNode(v[i]);
+                    ans=ans->right;
+                }
         }
-        return temp;
+        return res;
     }
 };
