@@ -25,23 +25,21 @@ class Solution {
     }
 public:
     TreeNode* increasingBST(TreeNode* root) {
-        TreeNode* ans=NULL, *res=NULL;
+        TreeNode* ptr=NULL, *temp=NULL;
         vector<int>v;
        inorder(root,v);
         for(int i = 0;i<v.size();i++)
         {
-         
-             if(ans==NULL)
-                {
-                    ans= new TreeNode(v[i]);
-                    res=ans;
-                }
-                else 
-                {
-                    ans->right= new TreeNode(v[i]);
-                    ans=ans->right;
-                }
+            if(ptr==NULL){
+                ptr = new TreeNode(v[i]);
+                temp = ptr;
+            }else{
+                 ptr->right =  new TreeNode(v[i]);
+                ptr=ptr->right;
+            }
+          
+           
         }
-        return res;
+        return temp;
     }
 };
