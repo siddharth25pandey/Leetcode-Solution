@@ -12,17 +12,17 @@ public:
             }
         }
         return false;*/
-        stack <int> stack;
+        stack <int> s;
         int second =  INT_MIN;
         for (int i = nums.size() - 1; i >= 0; i--) {
             if (nums [i] < second)
                 return true;
-            while (stack.size() >0 && nums [i] > stack.top()){
-                second = stack.top ();
-                stack.pop();
+            while (s.size() >0 and nums [i] > s.top()){
+                second = s.top ();
+                s.pop();
             }
                 
-            stack.push (nums [i]);
+            s.push (nums [i]);
         }
         return false;
     }
