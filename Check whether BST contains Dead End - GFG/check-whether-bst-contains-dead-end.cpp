@@ -100,11 +100,11 @@ int data;
 Node * right, * left;
 };*/
 
-/*You are required to complete below method */\
+/*You are required to complete below method */
 bool solve(Node* root, int mini, int maxi)
 {
     if(!root) return false;
-    if(root->data==mini and root->data==maxi) return true;
+    if(mini==maxi) return true;
     return solve(root->left,mini,root->data-1) or solve(root->right,root->data+1,maxi);
 }
 bool isDeadEnd(Node *root)
