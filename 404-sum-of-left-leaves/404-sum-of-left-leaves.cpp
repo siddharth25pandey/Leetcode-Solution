@@ -11,24 +11,25 @@
  */
 class Solution {
 public:
-    int sum=0;
-    int traverse(TreeNode* root, bool v)
+    
+    void traverse(TreeNode* root, bool v, int &sum)
     {
-        if(!root) return sum;
-        traverse(root->left,true);
-         traverse(root->right,false);
+        if(!root) return;
+        traverse(root->left,true,sum);
+         traverse(root->right,false,sum);
         if(root->left==NULL and root->right==NULL and v==true)
         {
             sum+=root->val;
         }
-        return sum;
+        return;
         
     }
     int sumOfLeftLeaves(TreeNode* root) {
         if(!root) return 0;
         bool v=false;
-        int p= traverse(root,v);
-        return p;
+        int sum=0;
+        traverse(root,v,sum);
+        return sum;
         
     }
 };
