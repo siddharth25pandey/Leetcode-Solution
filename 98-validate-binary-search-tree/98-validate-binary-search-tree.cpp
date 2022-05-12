@@ -17,11 +17,11 @@ class Solution {
      {
          return true;
      }
-      if(l!=NULL and (root->val)<=(l->val))
+      if(l and (root->val)<=(l->val))
       {
           return false;
       }
-         if(r!=NULL and (root->val)>=(r->val))
+         if(r and (root->val)>=(r->val))
       {
           return false;
       }
