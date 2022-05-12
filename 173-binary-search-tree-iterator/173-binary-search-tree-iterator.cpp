@@ -15,7 +15,7 @@ public:
     void LeftTree(TreeNode* root)
     {
         TreeNode* ptr=root;
-        while(ptr!=NULL)
+        while(ptr)
         {
             st.push(ptr);
             ptr=ptr->left;
