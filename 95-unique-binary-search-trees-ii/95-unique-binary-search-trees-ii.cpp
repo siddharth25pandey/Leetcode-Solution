@@ -11,19 +11,26 @@
  */
 class Solution {
 public:
-    vector<TreeNode*> generateTrees(int n, int s=1) {
-       vector<TreeNode*>ans;
+    vector<TreeNode*>helper(int n, int s)
+    {
+      
+         vector<TreeNode*>ans;
         if(n<s) return {NULL};
         for(int i=s;i<=n;i++)
         {
-            for(auto left:generateTrees(i-1,s))
+            for(auto left:helper(i-1,s))
             {
-                for(auto right:generateTrees(n,i+1) )
+                for(auto right:helper(n,i+1) )
                 {
                     ans.push_back(new TreeNode(i,left,right));
                 }
             }
         }
+        return ans;
+    }
+    vector<TreeNode*> generateTrees(int n) {
+       vector<TreeNode*>ans;
+        ans=helper(n,1);
         return ans;
          
     }
