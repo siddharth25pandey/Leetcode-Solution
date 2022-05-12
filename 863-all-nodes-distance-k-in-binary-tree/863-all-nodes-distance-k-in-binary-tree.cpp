@@ -36,10 +36,10 @@ public:
         dfs(root->right, m);
     }
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        /*vector<int>ans;
+        vector<int>ans;
         queue<TreeNode*>q;
         unordered_map<TreeNode*,TreeNode*>m;
-        helper(root,m);
+        dfs(root,m);
         q.push(target);
         unordered_map<TreeNode*,bool>visit;
         while(!q.empty())
@@ -68,8 +68,8 @@ public:
             k--;
             if(k<0) break;
         }
-          return ans;*/
-         unordered_map<TreeNode*, TreeNode*> m; //{current, parent}
+          return ans;
+         /*unordered_map<TreeNode*, TreeNode*> m; //{current, parent}
         queue<TreeNode*> q;
         dfs(root, m);
         q.push(target);
@@ -94,7 +94,7 @@ public:
             k--;
             if(k < 0) break;
         }
-        return res;
+        return res;*/
     }
   
 };
