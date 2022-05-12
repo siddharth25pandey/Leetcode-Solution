@@ -18,7 +18,7 @@ public:
        vector<vector<int>>graph(n+1);
        vector<bool>visit(n+1);
        for(auto i:edges)
-       {    fill(begin(visit), end(visit), false); 
+       {    fill(visit.begin(),visit.end(), false); 
            graph[i[0]].push_back(i[1]);
             graph[i[1]].push_back(i[0]);
            if(dfs(graph,visit,i[0]))return i;
