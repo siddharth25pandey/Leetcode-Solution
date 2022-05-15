@@ -20,11 +20,11 @@ public:
     {
         ptr->left= helper(preorder,m,pre_index);
     }
-    else return ptr;
-    if(pre_index<preorder.size() and m[preorder[pre_index]]<m[curr])
+  
+  if(pre_index<preorder.size() and m[preorder[pre_index]]<m[curr])
     {
         ptr->right= helper(preorder,m,pre_index);
-    }
+  }
     return ptr;
 }
     TreeNode* constructFromPrePost(vector<int>& pre, vector<int>& postorder) {
