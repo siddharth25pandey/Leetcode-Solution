@@ -7,7 +7,7 @@ public:
     }
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
         int n = grid.size()-1, m = grid[0].size()-1;
-        if (grid[0][0] || grid[n][m]) 
+        if (grid[0][0] or grid[n][m]) 
             return -1;
         
         queue<vector<int> > q;
@@ -16,7 +16,7 @@ public:
         q.push({0, 0});
         grid[0][0] = 1;
         
-        while (!q.empty() && !grid[n][m]) {
+        while (!q.empty() and !grid[n][m]) {
             curr = q.front();
             q.pop();
             
@@ -24,7 +24,7 @@ public:
                 int x = curr[0] + x_points[i];
                 int y = curr[1] + y_points[i];
                 
-                if (isValidPoint(x, y, n, m) && grid[x][y] == 0) {
+                if (isValidPoint(x, y, n, m) and grid[x][y] == 0) {
                     grid[x][y] = grid[curr[0]][curr[1]] + 1;
                     q.push({x, y});
                 }
