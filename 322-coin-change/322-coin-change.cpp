@@ -16,7 +16,6 @@ public:
     }
     int coinChange(vector<int>& coins, int amount) {
         memset(dp,-1,sizeof(dp));
-        int p=helper(amount,coins);
-            return p==INT_MAX?-1:p;
+        return helper(amount,coins)==INT_MAX?-1:helper(amount,coins);
     }
 };
