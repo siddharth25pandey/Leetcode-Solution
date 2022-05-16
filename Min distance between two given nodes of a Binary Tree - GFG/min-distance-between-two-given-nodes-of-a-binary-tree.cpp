@@ -104,8 +104,9 @@ class Solution{
         if(root->data==a or root->data==b) return root;
         Node* left_tree= lca(root->left,a,b);
         Node* right_tree=lca(root->right,a,b);
-        if(!left_tree) return right_tree;
+       
         if(!right_tree) return left_tree;
+         if(!left_tree) return right_tree;
         return root;
     }
 
