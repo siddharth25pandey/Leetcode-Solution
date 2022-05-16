@@ -120,7 +120,7 @@ class Solution{
     }
     int findDist(Node* root, int a, int b) {
         // Your code here
-        //return distance(lca(root,a,b),a,0)+distance(lca(root,a,b),b,0);
+        return distance(lca(root,a,b),a,0)+distance(lca(root,a,b),b,0);
       
     }
    /* Node* lca(Node* root,int a,int b){
