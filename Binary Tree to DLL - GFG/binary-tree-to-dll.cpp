@@ -108,7 +108,7 @@ class Solution
 {
     public: 
     //Function to convert binary tree to doubly linked list and return it.
-    void inorder(Node* root, Node* &head, Node* &tail)
+    void inorder(Node* root, Node* &head,  Node* &tail)
     {
         if(!root) return ;
         inorder(root->left,head,tail);
