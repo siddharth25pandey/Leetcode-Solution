@@ -10,26 +10,19 @@
  * };
  */
 class Solution {
-    int sum=0;
-    public:
-            int preorder(TreeNode* root,int low,int high)
-            {   
-                if(root!=NULL)
-                {
-                   
-                    if((root->val)>= low and (root->val)<=high)
-                    {
-                        sum+=root->val;
-                    }
-                     preorder(root->left,low,high);
-                    preorder(root->right,low,high);
-                }
-             return sum;
-            }
 public:
+    void inorder(TreeNode* root, int low, int high, int &sum)
+{
+	if(!root) return;
+	inorder(root->left,low,high,sum);
+	if(root->val>=low and root->val<=high) sum+=root->val;
+	inorder(root->right,low,high,sum);
+}
+
     int rangeSumBST(TreeNode* root, int low, int high) {
-        if(root==NULL)return 0;
-        int ans=preorder(root,low,high);
-        return ans;
+        int sum=0;
+	inorder(root,low,high,sum);
+	return sum;
+
     }
 };
