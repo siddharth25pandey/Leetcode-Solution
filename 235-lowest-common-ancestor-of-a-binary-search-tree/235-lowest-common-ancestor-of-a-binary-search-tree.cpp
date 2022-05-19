@@ -15,8 +15,8 @@ public:
         if(root==p or root==q) return root;
         TreeNode*left_tra=lowestCommonAncestor(root->left,p,q);
         TreeNode*right_tra=lowestCommonAncestor(root->right,p,q);
-        if(left_tra!=NULL and right_tra!=NULL) return root;
-        if(right_tra!=NULL) return right_tra;
+        if(left_tra and right_tra ) return root;
+        if(right_tra) return right_tra;
         else return left_tra;
         
     }
