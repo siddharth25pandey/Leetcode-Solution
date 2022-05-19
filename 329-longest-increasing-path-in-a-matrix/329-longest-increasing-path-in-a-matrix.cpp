@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[300][300];
+    int dp[200][200];
     int ans,m,n;
     
     int solve(vector<vector<int>>& mat, int i, int j, int prev){
