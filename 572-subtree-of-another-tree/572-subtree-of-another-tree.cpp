@@ -11,22 +11,22 @@
  */
 class Solution {
 public:
-    bool is_symmetric(TreeNode* r1, TreeNode* r2)
+    bool is_same_tree(TreeNode* r1, TreeNode* r2)
+{
+    if(!r1 or !r2) return  (r1==NULL and r2==NULL);
+    else if(r1->val==r2->val)
     {
-        if(!r1 or !r2) return r1==NULL and r2==NULL;
-        else if(r1->val==r2->val)
-        {
-            return is_symmetric(r1->left,r2->left) and is_symmetric(r1->right,r2->right);
-            
-        }
-        else
-        {
-            return false;
-        }
+        return is_same_tree(r1->left,r2->left) and is_same_tree(r1->right,r2->right);
     }
+    else 
+    {
+        return false;
+    }
+
+}
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if(root==NULL) return false;
-        else if(is_symmetric(root,subRoot)) return true;
-        else return isSubtree(root->left,subRoot) or isSubtree(root->right,subRoot);
+        if(!root) return false;
+    else if(is_same_tree(root,subRoot)) return true;
+    else return (isSubtree(root->left,subRoot) or isSubtree(root->right,subRoot));
     }
 };
