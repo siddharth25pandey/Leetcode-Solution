@@ -11,7 +11,7 @@ using namespace std;
 class Solution{
     public:
     vector<string>ans;
-    void dfs(vector<vector<int>>&m,int i, int j, int n, vector<vector<bool>>&visit, string s)
+   /* void dfs(vector<vector<int>>&m,int i, int j, int n, vector<vector<bool>>&visit, string s)
     {   
         if(i<0 or j<0 or i>=n or j>=n or visit[i][j] or !m[i][j]) return;
         
@@ -27,11 +27,29 @@ class Solution{
          dfs(m,i,j+1,n,visit,s+'R');
           dfs(m,i,j-1,n,visit,s+'L');
           visit[i][j]=false;
+    }*/
+    void dfs(vector<vector<int>>&maze,vector<vector<bool>>&visit, int n, int i, int j,string s)
+{
+    if(i<0 or j<0 or i>=n or j>=n or visit[i][j] or !maze[i][j]) return;
+
+    if(i==n-1 and j==n-1)
+    {
+        ans.push_back(s);
+        s="";
+        return;
     }
+    visit[i][j]=true;
+    dfs(maze,visit,n,i+1,j,s+'D');
+    dfs(maze,visit,n,i-1,j,s+'U');
+    dfs(maze,visit,n,i,j+1,s+'R');
+    dfs(maze,visit,n,i,j-1,s+'L');
+    visit[i][j]=false;
+}
     vector<string> findPath(vector<vector<int>> &m, int n) {
         // Your code goes here
         vector<vector<bool>>visit(n,vector<bool>(n,false));
-        dfs(m,0,0,n,visit,"");
+        //dfs(m,0,0,n,visit,"");
+         dfs(m,visit,n,0,0,"");
         if(ans.size()) return ans;
         return {"-1"};
     }
