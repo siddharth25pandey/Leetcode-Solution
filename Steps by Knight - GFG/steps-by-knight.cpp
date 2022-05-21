@@ -35,7 +35,7 @@ class Solution
 	                int dirx=curx+dir[k][0];
 	                int diry=cury+dir[k][1];
 	                
-	                if(dirx>0 && diry>0 && dirx<=n && diry<=n && !vis[dirx][diry]){
+	                if(dirx>0 && diry>0 and dirx<=n && diry<=n and !vis[dirx][diry]){
 	                    q.push({dirx,diry});
 	                    vis[dirx][diry]=true;
 	                }
