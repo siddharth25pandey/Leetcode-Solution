@@ -7,7 +7,7 @@ class Solution
 {
     public:
     //Function to find out minimum steps Knight needs to reach target position.
-    int dir[98][2]={{-1,-2},{-1,2},{1,-2},{1,2},{-2,-1},{-2,1},{2,-1},{2,1}};
+    int dir[8][2]={{-1,-2},{-1,2},{1,-2},{1,2},{-2,-1},{-2,1},{2,-1},{2,1}};
 	int minStepToReachTarget(vector<int>&k,vector<int>&t,int n)
 	{
 	    // Code here
