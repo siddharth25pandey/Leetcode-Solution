@@ -29,7 +29,7 @@ class Solution
 	            int cury=q.front().second;
 	            q.pop();
 	            
-	            if(curx==t1 && cury==t2)return count;
+	            if(curx==t1 and cury==t2)return count;
 	            
 	            for(int k=0;k<8;k++){
 	                int dirx=curx+dir[k][0];
