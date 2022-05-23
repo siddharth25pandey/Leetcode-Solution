@@ -2,7 +2,7 @@ class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int N, int K) {
         vector<pair<int,int>> g[N+1];
-        for(int i=0;i<size(times);i++)
+        for(int i=0;i<times.size();i++)
             g[times[i][0]].push_back({times[i][1],times[i][2]});
         vector<int> dist(N+1, 1e9);
         dist[K] = 0;
