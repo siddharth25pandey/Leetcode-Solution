@@ -18,7 +18,7 @@ public:
         int ans=0;
         for(int i=0;i<stones.size();i++)
         {
-            if(!visit[i])
+            if(visit[i])continue;
            ans+= dfs(stones,visit,i);
         }
         return ans;
