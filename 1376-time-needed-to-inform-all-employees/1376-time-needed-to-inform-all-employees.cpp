@@ -15,15 +15,14 @@ public:
                    int size=q.size();
                    for(int i=0;i<size;i++)
                    {
-                       int head=q.front().first;
-                       int time=q.front().second;
-                       q.pop();
-                       int duration=informTime[head]+time;
+                        int duration=informTime[q.front().first]+q.front().second;
+                        
                        ans=max(ans,duration);
-                       for(auto i:m[head])
+                       for(auto i:m[q.front().first])
                        {
                            q.push({i,duration});
                        }
+                       q.pop();
                                         
                    }
                }
