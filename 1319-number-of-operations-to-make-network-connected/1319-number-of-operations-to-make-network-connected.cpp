@@ -6,7 +6,7 @@ public:
     visit[index]=true;
     for(auto i:graph[index])
     {
-        if(!visit[i])
+        if(visit[i])continue;
         dfs(i,graph,visit);
     }
     
