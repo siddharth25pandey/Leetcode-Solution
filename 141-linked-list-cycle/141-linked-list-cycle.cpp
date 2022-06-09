@@ -15,15 +15,16 @@ public:
         }
        
         ListNode *p=head;
-        ListNode *k=head->next;
+        ListNode *k=head;
         while(k and k->next)
         {
+            
+            p=p->next;
+            k=k->next->next;
             if(p==k)
             {
                 return true;
             }
-            p=p->next;
-            k=k->next->next;
         }
         return false;
     }
