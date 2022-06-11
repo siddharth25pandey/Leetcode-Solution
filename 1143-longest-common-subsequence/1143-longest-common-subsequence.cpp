@@ -52,11 +52,12 @@ public:
         return LCS(text1,text2,text1.size(),text2.size());*/
          int m=text1.size(),n=text2.size();
        
-        for(int i=0;i<1001;i++){
+       /* for(int i=0;i<1001;i++){
             for(int j=0;j<1001;j++){
                 memo[i][j]=-1;
             }
-        }
+        }*/
+        memset(memo, -1, sizeof(memo));
         return longestCommonSubsequence(text1,text2,m,n);
     }
 };
