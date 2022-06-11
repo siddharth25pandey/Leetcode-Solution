@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int memo[1005][1005];
      int dp[1005][1005];
+    // Top Down Approach (Memoization)
     int LCS(string &x, string &y, int n,int m)
     {
         if(n==0 or m==0) dp[n][m]=0;
@@ -12,19 +12,6 @@ public:
         }
         else return dp[n][m]=max(LCS(x,y,n-1,m),LCS(x,y,n,m-1));
        
-    }
-     int longestCommonSubsequence(string &text1, string &text2,int m,int n) {
-        if(m==0 || n==0){
-            return 0;
-        }
-        if(memo[m][n]!=-1){
-            return memo[m][n];
-        }
-        if(text1[m-1]==text2[n-1]){
-            return memo[m][n]= 1+longestCommonSubsequence(text1,text2,m-1,n-1);
-        }else{
-            return memo[m][n]= max(longestCommonSubsequence(text1,text2,m-1,n),longestCommonSubsequence(text1,text2,m,n-1));
-        }
     }
     int longestCommonSubsequence(string text1, string text2) {
        // Bottom Up Approach 
@@ -51,8 +38,5 @@ public:
         memset(dp, -1, sizeof(dp));
          int m=text1.size(),n=text2.size();
         return LCS(text1,text2,m,n);
-        
-       // memset(memo, -1, sizeof(memo));
-       // return longestCommonSubsequence(text1,text2,m,n);
     }
 };
