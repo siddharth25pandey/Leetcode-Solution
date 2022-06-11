@@ -2,7 +2,7 @@ class Solution {
 public:
     int memo[1005][1005];
      int dp[1005][1005];
-    int LCS(string x, string y, int n,int m)
+    int LCS(string &x, string &y, int n,int m)
     {
         if(n==0 or m==0) dp[n][m]=0;
         if(dp[n][m]!=-1)return dp[n][m];
@@ -48,16 +48,11 @@ public:
             }
         }
         return a[text1.size()][text2.size()];*/
-        /*memset(dp, -1, sizeof(dp));
-        return LCS(text1,text2,text1.size(),text2.size());*/
+        memset(dp, -1, sizeof(dp));
          int m=text1.size(),n=text2.size();
-       
-       /* for(int i=0;i<1001;i++){
-            for(int j=0;j<1001;j++){
-                memo[i][j]=-1;
-            }
-        }*/
-        memset(memo, -1, sizeof(memo));
-        return longestCommonSubsequence(text1,text2,m,n);
+        return LCS(text1,text2,m,n);
+        
+       // memset(memo, -1, sizeof(memo));
+       // return longestCommonSubsequence(text1,text2,m,n);
     }
 };
