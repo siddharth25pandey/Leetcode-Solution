@@ -1,3 +1,5 @@
 # Write your MySQL query statement below
-SELECT w1.Id FROM Weather w1, Weather w2
-WHERE subdate(w1.recordDate, 1)=w2.recordDate AND w1.Temperature>w2.Temperature;
+SELECT wt1.Id 
+FROM Weather wt1, Weather wt2
+WHERE wt1.Temperature > wt2.Temperature AND 
+      TO_DAYS(wt1.recordDATE)-TO_DAYS(wt2.recordDATE)=1;
