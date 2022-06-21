@@ -1,6 +1,40 @@
 class Solution {
 public:
-    long long merge_global = 0;
+    bool isIdealPermutation(vector<int>& nums) {
+        
+        
+        // Using Two For Loop => Time Complexity O(n^2)  [Not Accepted] [Time Limit Exceeded]
+        
+        int global=0,local=0;
+         for(int i=0;i<nums.size()-1;i++)
+        {
+            
+                if(nums[i]>nums[i+1])local++;
+           
+        }
+       /* for(int i=0;i<nums.size()-1;i++)
+        {
+            for(int j=i+1;j<nums.size();j++)
+            {
+                if(nums[i]>nums[j])global++;
+            }
+        }
+        
+        return global==local;*/
+        
+         // Using Merge Sort => Time Complexity O(nlogn) [Accepted]
+        
+        merge_sort(nums,0,nums.size()-1);
+        return merge_global==local;
+        
+          //Using absolute value => Time Complexity O(n) [Accepted]
+        
+       for(int i = 0 ; i < nums.size() ; i++){
+            if(abs(nums[i] - i) > 1)return false;        
+        }
+        return true;
+    }
+      long long merge_global = 0;
         void merge(vector<int>& arr, int s, int e) {
         int mid = s + (e-s)/2;
         int l1 = mid - s + 1;
@@ -60,37 +94,4 @@ void merge_sort(vector<int>& arr, long long s, long long e) {
 
 
 }
-    bool isIdealPermutation(vector<int>& nums) {
-        
-        
-        // Using Two For Loop => Time Complexity (O(n^2))
-        
-        int global=0,local=0;
-         for(int i=0;i<nums.size()-1;i++)
-        {
-            
-                if(nums[i]>nums[i+1])local++;
-           
-        }
-       /* for(int i=0;i<nums.size()-1;i++)
-        {
-            for(int j=i+1;j<nums.size();j++)
-            {
-                if(nums[i]>nums[j])global++;
-            }
-        }
-        
-        return global==local;*/
-        
-         // Using Merge Sort => Time Complexity (O(nlogn))
-        
-        merge_sort(nums,0,nums.size()-1);
-        return merge_global==local;
-       /* for(int i = 0 ; i < nums.size() ; i++){
-            if(abs(nums[i] - i) > 1)return false;        
-        }
-        return true;*/
-       
-        
-    }
 };
