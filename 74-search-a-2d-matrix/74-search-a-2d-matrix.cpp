@@ -12,12 +12,9 @@ public:
         }
         
         return false;*/
-        for(auto i:matrix)
+        for(auto &i:matrix)
         {
-            for(auto j:i)
-            {
-                if(j==target) return true;
-            }
+            if(binary_search(i.begin(),i.end(),target))return true;
         }
         return false;
     }
