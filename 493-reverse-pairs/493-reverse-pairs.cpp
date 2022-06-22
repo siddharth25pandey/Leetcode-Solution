@@ -5,13 +5,13 @@ public:
         int i = 0, j = 0, k = 0;
         
         for (i = 0; i < left.size(); i++) {            
-            while (j < right.size() && left[i] > right[j]*2LL)
+            while (j < right.size() and left[i] > right[j]*2LL)
                 j++;
             count += j;
         }
         
         i = 0, j = 0;        
-        while (i < left.size() && j < right.size()) {
+        while (i < left.size() and j < right.size()) {
             if (left[i] < right[j])
                 nums[k++] = left[i++];
             else 
