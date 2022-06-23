@@ -7,13 +7,13 @@ public:
         vector<vector<int>> ans;  
         set<vector<int>> store;   // to store and remove the duplicate answers
 		
-        for( long long int i = 0 ; i < n; i++){
+        for(int i = 0 ; i < n; i++){
 		
-            for( long long int j = i + 1; j < n ; j++){
+            for(int j = i + 1; j < n ; j++){
 			
                 long long int new_target  =  (target - (nums[i]*1LL) - (nums[j]*1LL));
                 
-                long long int x = j+1 , y = n-1;
+                 int x = j+1 , y = n-1;
                 
                 while(x < y){
 				
