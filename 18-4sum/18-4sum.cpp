@@ -5,7 +5,7 @@ public:
          long long int n = nums.size();  
         sort(nums.begin() , nums.end()); 
         vector<vector<int>> ans;  
-        set<vector<int>> store;   // to store and remove the duplicate answers
+        set<vector<int>> store;   
 		
         for(int i = 0 ; i < n; i++){
 		
@@ -16,9 +16,7 @@ public:
                  int x = j+1 , y = n-1;
                 
                 while(x < y){
-				
-                   long long int sum = nums[x]*1LL + nums[y]*1LL;
-                    
+				    long long int sum = nums[x]*1LL + nums[y]*1LL;                    
                     if(sum > new_target) y--;
                     else if(sum < new_target ) x++;
                     else  {
@@ -30,10 +28,7 @@ public:
             }
         }
 		
-        for(auto i : store){
-            ans.push_back(i);  
-        }
-		
+        for(auto &i : store)ans.push_back(i); 		
         return ans;
     }
 };
