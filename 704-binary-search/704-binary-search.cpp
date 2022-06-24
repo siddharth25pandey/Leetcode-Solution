@@ -1,7 +1,6 @@
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
-       if(binary_search(nums.begin(),nums.end(),target)==false) return -1;
+    int search(vector<int>& nums, int target) {     
          int start=0,end=nums.size()-1;
         while(start<=end)
         {
@@ -15,7 +14,7 @@ public:
                 end=mid-1;
             }
         }
-       return 0;
+       return -1;
         
     }
 };
