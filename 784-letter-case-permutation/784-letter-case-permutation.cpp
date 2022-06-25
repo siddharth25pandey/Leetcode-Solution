@@ -1,15 +1,15 @@
 class Solution {
 public:
-    void backtrack(string& curr, int i, vector<string> &res, int n) {
+    void backtrack(string &s, int i, vector<string> &res, int n) {
         if (i == n) {
-            res.push_back(curr);
+            res.push_back(s);
             return;
         }
-        char temp = curr[i];
-        backtrack(curr, i+1,res,n);
+        char temp = s[i];
+        backtrack(s, i+1,res,n);
         if (!isdigit(temp)) {
-            curr[i] = islower(temp) ? toupper(temp) : tolower(temp);
-            backtrack(curr, i+1,res,n);
+            s[i] = islower(temp) ? toupper(temp) : tolower(temp);
+            backtrack(s, i+1,res,n);
         }
     }
     
