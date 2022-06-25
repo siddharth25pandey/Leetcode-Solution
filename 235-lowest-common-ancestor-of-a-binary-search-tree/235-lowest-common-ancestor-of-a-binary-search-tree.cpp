@@ -13,11 +13,11 @@ public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(root==NULL) return NULL;
         if(root==p or root==q) return root;
-        TreeNode*left_tra=lowestCommonAncestor(root->left,p,q);
-        TreeNode*right_tra=lowestCommonAncestor(root->right,p,q);
-        if(left_tra and right_tra ) return root;
-        if(right_tra) return right_tra;
-        else return left_tra;
+        TreeNode*left_traverse=lowestCommonAncestor(root->left,p,q);
+        TreeNode*right_traverse=lowestCommonAncestor(root->right,p,q);
+        if(left_traverse and right_traverse ) return root;
+        if(right_traverse) return right_traverse;
+         return left_traverse;
         
     }
 };
