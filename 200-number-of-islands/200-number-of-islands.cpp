@@ -5,12 +5,9 @@ public:
         if(i< 0 or i>=v.size() or j<0 or j>=v[0].size() or v[i][j]=='0') return;
         v[i][j]='0';
         dfs(v,i+1,j);
-         dfs(v,i-1,j);
+        dfs(v,i-1,j);
         dfs(v,i,j+1);
-         dfs(v,i,j-1);
-       
-        
-      
+        dfs(v,i,j-1);
     }
    
     int numIslands(vector<vector<char>>& grid) {
@@ -26,6 +23,6 @@ public:
                  }
             }
         }
-                          return ans;
+       return ans;                   
     }
 };
