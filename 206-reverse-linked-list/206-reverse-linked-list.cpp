@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-       /* ListNode* current=head;
+        ListNode* current=head;
         ListNode* prev=NULL; ListNode*next_point=NULL;
         while(current!=NULL)
         {
@@ -21,8 +21,8 @@ public:
             current=next_point;
             
         }
-        return prev;*/
-        vector<int>v;
+        return prev;
+       /* vector<int>v;
         ListNode* ptr=head;
         while(ptr!=NULL)
         {
@@ -44,6 +44,6 @@ public:
                ans=ans->next;
             }
         }
-        return res;
+        return res;*/
     }
 };
