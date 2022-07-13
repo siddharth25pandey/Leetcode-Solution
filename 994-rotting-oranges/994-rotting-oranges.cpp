@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void dfs(vector<vector<int>>&grid, int i, int j, int min)
+    void dfs(vector<vector<int>>&grid, int i, int j, int min=2)
     {
         if(i<0 or j<0 or i>=grid.size() or j>=grid[0].size() or  grid[i][j]==0 or (1 < grid[i][j] and grid[i][j] < min))return ;
         grid[i][j]=min;
@@ -14,7 +14,7 @@ public:
         {
             for(int j=0;j<grid[0].size();j++)
             {
-                if(grid[i][j]==2) dfs(grid,i,j,2);
+                if(grid[i][j]==2) dfs(grid,i,j);
 
             }
         }
