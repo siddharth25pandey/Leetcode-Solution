@@ -13,18 +13,9 @@ class Solution {
     public:
     bool check(TreeNode* root,TreeNode* l, TreeNode* r)
     {
-        if(root==NULL)
-     {
-         return true;
-     }
-      if(l and (root->val)<=(l->val))
-      {
-          return false;
-      }
-         if(r and (root->val)>=(r->val))
-      {
-          return false;
-      }
+        if(!root)return true;    
+      if(l and (root->val)<=(l->val))return false;
+      if(r and (root->val)>=(r->val))return false;
         return (check(root->left,l,root) and check(root->right,root,r));
         }
 public:
