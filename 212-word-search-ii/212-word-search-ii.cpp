@@ -5,7 +5,7 @@ struct TrieNode {
         TrieNode* cur = this;
         for (char c : word) {
             c -= 'a';
-            if (cur->children[c] == nullptr) cur->children[c] = new TrieNode();
+            if (!cur->children[c]) cur->children[c] = new TrieNode();
             cur = cur->children[c];
         }
         cur->word = &word;
@@ -15,7 +15,7 @@ struct TrieNode {
 class Solution {
 public:
     int m, n;
-    int DIR[5] = {0, 1, 0, -1, 0};
+    int arr[5] = {0, 1, 0, -1, 0};
     vector<string> ans;
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         m = board.size(); n = board[0].size();
@@ -28,15 +28,15 @@ public:
         return ans;
     }
     void dfs(vector<vector<char>>& board, int r, int c, TrieNode* cur) {
-        if (r < 0 || r == m || c < 0 || c == n || board[r][c] == '#' || cur->children[board[r][c]-'a'] == nullptr) return;
-        char orgChar = board[r][c];
-        cur = cur->children[orgChar - 'a'];
+        if (r < 0 or r >= m or c < 0 or c >= n or board[r][c] == '.' or !cur->children[board[r][c]-'a']) return;
+        char temp = board[r][c];
+        cur = cur->children[temp - 'a'];
         if (cur->word != nullptr) {
             ans.push_back(*cur->word);
-            cur->word = nullptr; // Avoid duplication!
+            cur->word = NULL; // Avoid duplication!
         }
-        board[r][c] = '#'; // mark as visited!
-        for (int i = 0; i < 4; ++i) dfs(board, r + DIR[i], c + DIR[i+1], cur);
-        board[r][c] = orgChar; // restore org state
+        board[r][c] = '.'; // mark as visited!
+        for (int i = 0; i < 4; ++i) dfs(board, r + arr[i], c + arr[i+1], cur);
+        board[r][c] = temp; // restore org state
     }
 };
