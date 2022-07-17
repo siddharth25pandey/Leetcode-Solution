@@ -9,7 +9,6 @@ public:
         while(!q.empty()){
             string s = q.front();
             q.pop();
-            
             if(s.size() == digits.size()) ans.push_back(s);
             else{
                 string temp = phone[digits[s.size()] - '0'];
