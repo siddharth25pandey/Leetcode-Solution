@@ -1,22 +1,22 @@
 class Solution {
 public:
-    vector<vector<string>> ret;
+    
     bool is_valid(vector<string> &board, int row, int col){
         // check col
         for(int i=row;i>=0;--i)
             if(board[i][col] == 'Q') return false;
         // check left diagonal
-        for(int i=row,j=col;i>=0&&j>=0;--i,--j)
+        for(int i=row,j=col;i>=0 and j>=0;--i,--j)
             if(board[i][j] == 'Q') return false;
         //check right diagonal
-        for(int i=row,j=col;i>=0&&j<board.size();--i,++j)
+        for(int i=row,j=col;i>=0 and j<board.size();--i,++j)
             if(board[i][j] == 'Q') return false;
         return true;
     }
-    void dfs(vector<string> &board, int row){
+    void dfs(vector<string> &board, int row, vector<vector<string>>&ans){
         // exit condition
         if(row == board.size()){
-            ret.push_back(board);
+            ans.push_back(board);
             return;
         }
         // iterate every possible position
@@ -25,17 +25,17 @@ public:
                 // make decision
                 board[row][i] = 'Q';
                 // next iteration
-                dfs(board,row+1);
+                dfs(board,row+1,ans);
                 // back-tracking
                 board[row][i] = '.';
             }
         }
     }
     vector<vector<string>> solveNQueens(int n) {
-		// return empty if n <= 0
         if(n <= 0) return {{}};
+        vector<vector<string>>ans;
         vector<string> board(n,string(n,'.'));
-        dfs(board,0);
-        return ret;
+        dfs(board,0,ans);
+        return ans;
     }
 };
