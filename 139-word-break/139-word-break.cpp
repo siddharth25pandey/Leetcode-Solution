@@ -7,7 +7,7 @@ public:
         {
             for(int j=0;j<i;j++)
             {
-     if(v[j]==true and find(w.begin(),w.end(),s.substr(j,i-j))!=w.end()) // Substring check
+     if(v[j] and find(w.begin(),w.end(),s.substr(j,i-j))!=w.end()) // Substring check
                 {
                     v[i]=true;
                     break;
