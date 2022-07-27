@@ -11,24 +11,18 @@
  */
 class Solution {
 public:
+   
     void flatten(TreeNode* root) {
-       TreeNode* ptr=root;
-    while(ptr)
-    {
-        if(ptr->left)
-        {
-            TreeNode* temp= ptr->left;
-            while(temp->right!=NULL)
-            {
-                temp=temp->right;
+        TreeNode* curr = root; // Using Morris Traversal
+        while (curr) {
+            if (curr->left) {
+                TreeNode* runner = curr->left;
+                while (runner->right) runner = runner->right;
+                runner->right = curr->right;
+                curr->right = curr->left;
+                curr->left = NULL;
             }
-            temp->right=ptr->right;
-            ptr->right=ptr->left;
-            ptr->left=NULL;
-
-        }else{
-            ptr=ptr->right;
+            curr = curr->right;
         }
-    }
     }
 };
