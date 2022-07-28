@@ -1,23 +1,20 @@
 class Solution {
 public:
-   int dp[10000];
-int helper(vector<int>&nums, int amt) // Using Recursion
-{   
-    if(amt==0) return 0;
-    if(dp[amt]!=-1) return dp[amt];
-    int ans=INT_MAX;
-    for(auto i:nums)
-    {
-        if(amt-i>=0)
-        {
-            ans=min(ans+0LL,helper(nums,amt-i)+1LL);
+    int coinChange(vector<int>& coins, int n) {
+         int dp[++n];
+        dp[0] = 0;
+        // more convenient to have the coins sorted
+        sort(coins.begin(), coins.end());
+        // populating our dp array
+        for (int i = 1; i < n; i++) {
+            // setting dp[0] base value to 1, 0 for all the rest
+            dp[i] = INT_MAX;
+            for (auto &c: coins) {
+                if (i - c < 0) break;
+                // if it was a previously not reached cell, we do not add use it
+                if (dp[i - c] != INT_MAX) dp[i] = min(dp[i], 1 + dp[i - c]);
+            }
         }
-    }
-    return dp[amt]=ans;
-}
-    int coinChange(vector<int>& nums, int amt) {
-         memset(dp,-1,sizeof(dp));
-         int p=helper(nums,amt);
-    return p==INT_MAX?-1:p;
+        return dp[--n] == INT_MAX ? -1 : dp[n];
     }
 };
