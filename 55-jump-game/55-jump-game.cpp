@@ -4,10 +4,7 @@ public:
         int x=0;
         for(int i=0;i<nums.size();i++)
         {
-            if(x<i)
-            {
-               return false;
-            }
+            if(x<i) return false;
              x=max(x,nums[i]+i);
         }
         return true;
