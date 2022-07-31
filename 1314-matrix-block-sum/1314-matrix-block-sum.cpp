@@ -4,7 +4,7 @@ public:
     vector<vector<int>> matrixBlockSum(vector<vector<int>>& mat, int k) {
        int m = mat.size(), n = mat[0].size();
 
-		vector<vector<int>> ans(m, vector<int>(n));
+		vector<vector<int>> ans=mat;
 		vector<vector<int>> prefix_sum(105, vector<int>(105));
 
 		for (int i = 0; i < m; i++) {
