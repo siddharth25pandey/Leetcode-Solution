@@ -23,8 +23,7 @@ public:
             {
                 int v=graph[u][i].first;
                 int w=graph[u][i].second;
-                if(!visit[v] and dist[v]>dist[u]+w)
-                    
+                if(!visit[v] and dist[v]>dist[u]+w)         
                 {
                     dist[v]=dist[u]+w;
                     pq.push({dist[v],v});
@@ -36,8 +35,7 @@ public:
         for(int i=1;i<dist.size();i++){
             ans = max(ans, dist[i]);
         }
-    //return (ans==1e9)?-1:ans;
-        if(ans==1e9) return -1;
-        return ans;
+    return (ans==1e9)?-1:ans;
+        
     }
 };
