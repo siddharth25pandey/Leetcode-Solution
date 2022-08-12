@@ -1,33 +1,42 @@
 class Solution {
 public:
-    int networkDelayTime(vector<vector<int>>& times, int N, int K) {
-        vector<pair<int,int>> g[N+1];
-        for(int i=0;i<times.size();i++)
-            g[times[i][0]].push_back({times[i][1],times[i][2]});
-        vector<int> dist(N+1, 1e9);
-        dist[K] = 0;
-        priority_queue<pair<int,int>, vector<pair<int,int>> , greater<pair<int,int>>> q;
-        q.push({0,K});
-        pair<int,int> temp;
-        vector<bool>visit(N+1,false);
-        while(!q.empty()){
-            temp = q.top();
-            q.pop();
-            int u = temp.second;
-            visit[u] = true;
-            for(int i=0;i<g[u].size();i++){
-                int v = g[u][i].first;
-                int weight = g[u][i].second;
-                if(!visit[v] and dist[v] > dist[u] + weight){
-                    dist[v] = dist[u] + weight;
-                    q.push({dist[v], v});
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<pair<int,int>>graph[n+1]; // Dijkstra algorithm
+        for(auto &i:times)
+        {
+            graph[i[0]].push_back({i[1],i[2]});
+        }
+        vector<int>dist(n+1,1e9);
+        dist[k]=0;
+        vector<bool>visit(n+1,false);
+        priority_queue<pair<int,int>,vector<pair<int,int>>, greater<pair<int,int>>>pq;
+        pq.push({0,k});
+        pair<int,int>temp;
+        while(!pq.empty())
+        {
+            temp=pq.top();
+            pq.pop();
+            int u=temp.second;
+            visit[u]=true;
+            
+            for(int i=0;i<graph[u].size();i++)
+            {
+                int v=graph[u][i].first;
+                int w=graph[u][i].second;
+                if(!visit[v] and dist[v]>dist[u]+w)
+                    
+                {
+                    dist[v]=dist[u]+w;
+                    pq.push({dist[v],v});
                 }
             }
         }
-        int ans = 0;
+    
+    int ans = 0;
         for(int i=1;i<dist.size();i++){
             ans = max(ans, dist[i]);
         }
+    //return (ans==1e9)?-1:ans;
         if(ans==1e9) return -1;
         return ans;
     }
