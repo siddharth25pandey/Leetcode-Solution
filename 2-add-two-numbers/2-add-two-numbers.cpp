@@ -9,42 +9,26 @@
  * };
  */
 class Solution {
-public:
-    void insertattail(ListNode* &head, int val){
-        ListNode* n = new ListNode(val);
-        if (head==NULL){
-            head = n;
-            return;
-        }
-        ListNode* temp = head;
-        while(temp->next!=NULL){
-            temp = temp ->next;
-        }
-        temp->next = n;
-        n->next = NULL;
-
-    }
-    
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+public:   
+  ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode* ans = NULL,*res=NULL;
         int carry = 0;
 
-        while(l1!=NULL or l2!=NULL or carry){
+        while(l1 or l2 or carry){
             int sum = 0;
-            if(l1!=NULL){
-                sum = sum + l1->val;
+            if(l1){
+                sum+= l1->val;
                 l1 = l1->next;
             }
-            if(l2!=NULL){
-                sum = sum + l2->val;
+            if(l2){
+                sum+= l2->val;
                 l2 = l2->next;
             }
-            sum = sum + carry;
+            sum += carry;
             carry = sum/10;
-            //insertattail(c,sum%10);
             if(ans==NULL)
             {
-             ans= new ListNode(sum%10);
+                ans= new ListNode(sum%10);
                 res=ans;
             }
             else
