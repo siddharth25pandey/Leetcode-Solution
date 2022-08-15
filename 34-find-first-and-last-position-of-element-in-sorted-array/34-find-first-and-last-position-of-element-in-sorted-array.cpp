@@ -18,7 +18,7 @@ public:
             break;
         }
     }*/
-        int i=0,j=arr.size()-1;
+         int i=0,j=arr.size()-1;
         while(i<=j)
         {
             int mid=i+(j-i)/2;
