@@ -11,8 +11,8 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        vector<int>v;
-        ListNode* ptr=head;
+        /*vector<int>v;
+        ListNode* ptr=head,* ans=NULL,*res=NULL;
         while(ptr)
         {
             v.push_back(ptr->val);
@@ -24,7 +24,6 @@ public:
            if(i+k<=v.size())
             reverse(v.begin()+i,v.begin()+i+k);
         }
-        ListNode* ans=NULL,*res=NULL;
         for(auto &i:v)
         {
           if(ans==NULL)
@@ -39,6 +38,22 @@ public:
                 ans=ans->next;
             }
         }
-        return res;
+        return res;*/
+         ListNode* cursor = head;
+        for(int i = 0; i < k; i++){
+            if(!cursor) return head;
+            cursor = cursor->next;
+        }
+        ListNode* curr = head;
+        ListNode* prev = NULL;
+        ListNode* nxt = NULL;
+        for(int i = 1; i <= k; i++){
+            nxt = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nxt;
+        }
+        head->next = reverseKGroup(curr, k);
+        return prev;
     }
 };
