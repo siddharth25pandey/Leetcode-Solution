@@ -13,9 +13,7 @@ class Solution {
     public:
 int preInd=0;
     TreeNode* createTree(vector<int>& preorder, vector<int>& inorder,int start, int end){
-    if(start > end){
-        return NULL;
-    }
+    if(start > end) return NULL;
     TreeNode* node=new TreeNode(preorder[preInd++]);
     int pos;
     for(int i=start;i<=end;i++){
