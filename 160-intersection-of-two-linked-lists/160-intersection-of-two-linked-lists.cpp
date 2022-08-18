@@ -10,12 +10,12 @@ class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         unordered_map<ListNode*,int>m;
-       while(headA!=NULL)
+       while(headA)
        {
            m[headA]++;
            headA=headA->next;
        }
-        while(headB!=NULL)
+        while(headB)
         {
             if(m[headB]>0)
             {
