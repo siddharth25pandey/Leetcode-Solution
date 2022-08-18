@@ -10,8 +10,30 @@
  */
 class Solution {
 public:
+    ListNode* merge(ListNode* l1, ListNode* l2) {
+        ListNode *cur = new ListNode(0);
+        ListNode *temp = cur;
+        while(l1 && l2) {
+            if(l1->val < l2->val) {
+                cur->next = l1;
+                l1 = l1->next;
+            }
+            else {
+                cur->next = l2;
+                l2 = l2->next;
+            }
+            cur = cur->next;
+        }
+        if(l1) {
+			cur->next = l1;
+		}
+        if(l2) {
+			cur->next = l2;
+		}
+        return temp->next;
+    }
     ListNode* sortList(ListNode* head) {
-        ListNode* temp= head;
+        /*ListNode* temp= head;
         ListNode* ptr=head;
         vector<int>v;
         while(ptr!=NULL)
@@ -20,20 +42,13 @@ public:
             ptr=ptr->next;
         }
         sort(v.begin(),v.end());
-       /* for(int i=0;i<v.size();i++)
-        {
-            temp->val=v[i];
-            temp=temp->next;
-        }
-        temp=head;
-        return head;*/
         ListNode* a=NULL,*b=NULL;
         for(auto i:v)
-        {    if(a==NULL)
+        {    if(!a)
             
         {
             a= new ListNode(i);
-           b=a;
+            b=a;
         }
          else 
          {  a->next= new ListNode(i);
@@ -41,7 +56,19 @@ public:
          }
            // b=a;
         }
-        return b;
+        return b;*/
+         if(!head or !head->next) return head;
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while(fast and fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        // Divide the list into two parts (one start with head and other with fast)
+        fast = slow->next;
+        slow->next = NULL;
+        // Merge these List 
+        return merge(sortList(head), sortList(fast));
         
     }
 };
