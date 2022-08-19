@@ -7,10 +7,8 @@ public:
         int ans=1;
         for(int j=0;j<i;j++)
         {
-            if(v[i]>v[j])
-            {
-                ans=max(ans,helper(j,v)+1);
-            }
+            if(v[i]>v[j])ans=max(ans,helper(j,v)+1);
+            
         }
         return dp[i]=ans;
     }
