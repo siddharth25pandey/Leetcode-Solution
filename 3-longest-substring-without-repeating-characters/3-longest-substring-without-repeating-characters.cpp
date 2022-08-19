@@ -1,7 +1,7 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        int n=s.size();
+         int n=s.size();
         if(n==0)
             return 0;
         set<char> p;
@@ -11,14 +11,14 @@ public:
         {
             if(p.count(s[j])==0)
             {
-                p.insert(s[j]);
+                p.insert(s[j++]);
                 maxsize=max(maxsize,(int)p.size());
-                j++;
+                
             }
             else
             {
-                p.erase(s[i]);
-                i++;
+                p.erase(s[i++]);
+               
             }
         }
         return maxsize;
