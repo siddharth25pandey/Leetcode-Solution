@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode* current=head;
+        /*ListNode* current=head;
         ListNode* prev=NULL; ListNode*next_point=NULL;
         while(current!=NULL)
         {
@@ -21,29 +21,31 @@ public:
             current=next_point;
             
         }
-        return prev;
-       /* vector<int>v;
+        return prev;*/
+        stack<int>s;
         ListNode* ptr=head;
         while(ptr!=NULL)
         {
-            v.push_back(ptr->val);
+           s.push(ptr->val);
             ptr=ptr->next;
         }
-        reverse(v.begin(),v.end());
+       
         ListNode* ans=NULL, *res=NULL;
-        for(auto i:v)
+        while(!s.empty())
         {
             if(ans==NULL)
             {
-                ans= new ListNode(i);
+                ans= new ListNode(s.top());
                  res=ans;
+                s.pop();
             }
             else 
             {
-                ans->next=new ListNode(i);
+                ans->next=new ListNode(s.top());
                ans=ans->next;
+                s.pop();
             }
         }
-        return res;*/
+        return res;
     }
 };
