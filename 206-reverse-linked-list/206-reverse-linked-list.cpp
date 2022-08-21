@@ -10,6 +10,15 @@
  */
 class Solution {
 public:
+    
+    ListNode* reverse(ListNode* cur, ListNode* pre)
+    {
+        if(!cur)return pre;
+        ListNode* ptr= cur->next;
+        cur->next=pre;
+        return reverse(ptr,cur);
+        
+    }
     ListNode* reverseList(ListNode* head) {
         /*ListNode* current=head;
         ListNode* prev=NULL; ListNode*next_point=NULL;
@@ -22,7 +31,7 @@ public:
             
         }
         return prev;*/
-        stack<int>s;
+       /* stack<int>s;
         ListNode* ptr=head;
         while(ptr!=NULL)
         {
@@ -46,6 +55,7 @@ public:
                 s.pop();
             }
         }
-        return res;
+        return res;*/
+        return reverse(head, NULL);
     }
 };
