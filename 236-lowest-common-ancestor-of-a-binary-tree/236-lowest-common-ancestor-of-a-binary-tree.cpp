@@ -16,7 +16,7 @@ public:
         TreeNode*right_tra=lowestCommonAncestor(root->right,p,q);
         if(left_tra and right_tra) return root;
         if(left_tra) return left_tra;
-        else return right_tra;
+        return right_tra;
         
     }
 };
