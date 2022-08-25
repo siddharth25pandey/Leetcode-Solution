@@ -2,7 +2,7 @@ class Solution {
 public:
      int dp[100001];
     int helper(int amt, vector<int>&v)
-    {   if(amt==0) return 0;
+    {   if(!amt) return 0;
         if(dp[amt]!=-1) return dp[amt];
         int ans=INT_MAX;
         for(auto i:v)
