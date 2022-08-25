@@ -11,7 +11,7 @@ public:
                     if(s[i]==s[i+1]) dp[i][i+1] = 1;
                     else dp[i][i+1] = 0;
                 }
-                else if(s[i]==s[i+len-1] && dp[i+1][i+len-2]>0) dp[i][i+len-1] = 1;
+                else if(s[i]==s[i+len-1] and dp[i+1][i+len-2]>0) dp[i][i+len-1] = 1;
                 else dp[i][i+len-1] = 0;
                 ans += dp[i][i+len-1];
             }
