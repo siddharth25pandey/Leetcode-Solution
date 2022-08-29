@@ -9,18 +9,15 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-         if(!head or !head->next)return false;
-        ListNode *p=head;
-        ListNode *k=head;
-        while(k and k->next)
+         if(!head or !head->next)return false; // Floyd's Cycle or Hare Torotise algo
+        ListNode *slow=head;
+        ListNode *fast=head;
+        while(fast and fast->next)
         {
             
-            p=p->next;
-            k=k->next->next;
-            if(p==k)
-            {
-                return true;
-            }
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast)return true;
         }
         return false;
     }
