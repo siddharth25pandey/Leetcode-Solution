@@ -3,8 +3,7 @@ public:
     int parent[1001];
    
     int find(int x){
-        if(parent[x]!=x)
-            parent[x]= find(parent[x]);
+        if(parent[x]!=x)parent[x]= find(parent[x]);      
         return parent[x];
     }
     void merge(int a,int b){
