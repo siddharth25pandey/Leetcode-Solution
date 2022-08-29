@@ -18,11 +18,11 @@ public:
         return parent[x];
     }
     void merge(int a,int b){
-        if(a>b)
+        /*if(a>b)
             swap(a,b);
         int ax = find(a);
-        int bx = find(b);
-        parent[ax] = bx;
+        int bx = find(b);*/
+        parent[find(a)] = find(b);
     }
     bool equationsPossible(vector<string>& eq) {
         for(int i=0;i<26;i++)
