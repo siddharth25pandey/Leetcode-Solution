@@ -12,7 +12,7 @@ public:
    int minCostConnectPoints(vector<vector<int>>& points) {
         
        // Using Union Find Algorithm
-       vector<int>v(10000);
+       vector<int>v(1005);
        for(int i=0;i<points.size();i++)v[i]=i;
         multiset<pair<int,pair<int,int>>>ms;
         
