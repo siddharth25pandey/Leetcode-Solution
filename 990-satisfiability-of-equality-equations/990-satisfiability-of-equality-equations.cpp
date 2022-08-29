@@ -1,27 +1,13 @@
 class Solution {
 public:
     int parent[1001];
-    /*int find(int x)
-    {
-      if(parent[x]!=-1) parent[x]= find(parent[x]);
-        return parent[x];
-       /* if(parent[x]==-1)return x;
-        return find(parent[x]);*/
-    //}
-    /*void merge(int x, int y)
-    {
-        parent[x]=y;
-    }*/
+   
     int find(int x){
-        if(x!= parent[x])
+        if(parent[x]!=x)
             parent[x]= find(parent[x]);
         return parent[x];
     }
     void merge(int a,int b){
-        /*if(a>b)
-            swap(a,b);
-        int ax = find(a);
-        int bx = find(b);*/
         parent[find(a)] = find(b);
     }
     bool equationsPossible(vector<string>& eq) {
