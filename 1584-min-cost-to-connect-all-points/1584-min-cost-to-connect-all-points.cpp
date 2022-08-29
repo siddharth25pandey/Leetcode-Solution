@@ -11,6 +11,38 @@ public:
     }
    int minCostConnectPoints(vector<vector<int>>& points) {
         
+       // Using Union Find Algorithm
+       vector<int>v(10000);
+       for(int i=0;i<points.size();i++)v[i]=i;
+        multiset<pair<int,pair<int,int>>>ms;
+        
+        map<pair<int,int>,int>mp;
+        for(int i=0;i<points.size();i++){
+            mp[{points[i][0],points[i][1]}]=i+1;
+        }
+        for(int i=0;i<points.size();i++)
+        {
+            for(int j=i+1;j<points.size();j++){
+                ms.insert({dist(points[i][0],points[i][1],points[j][0],points[j][1]),{mp[{points[i][0],points[i][1]}  ],mp[{points[j][0],points[j][1]}  ]}});
+            }
+        }
+       int ans=0;
+        for(auto &i: ms){
+            int node1=i.second.first;
+            int node2=i.second.second;
+            int wt=i.first;
+            if(find(node1,v)!=find(node2,v)){
+                merge(node1,node2,v);
+                ans+=wt;
+                
+            }
+        }
+       return ans;
+       
+       
+       
+       
+       
         /*int n = points.size();
         
         set<pair<int, int>> s;
@@ -51,32 +83,7 @@ public:
         }
         
         return ans;*/
-       vector<int>v(10000);
-       for(int i=0;i<points.size();i++)v[i]=i;
-        multiset<pair<int,pair<int,int>>>ms;
-        
-        map<pair<int,int>,int>mp;
-        for(int i=0;i<points.size();i++){
-            mp[{points[i][0],points[i][1]}]=i+1;
-        }
-        for(int i=0;i<points.size();i++)
-        {
-            for(int j=i+1;j<points.size();j++){
-                ms.insert({dist(points[i][0],points[i][1],points[j][0],points[j][1]),{mp[{points[i][0],points[i][1]}  ],mp[{points[j][0],points[j][1]}  ]}});
-            }
-        }
-       int ans=0;
-        for(auto &i: ms){
-            int node1=i.second.first;
-            int node2=i.second.second;
-            int wt=i.first;
-            if(find(node1,v)!=find(node2,v)){
-                merge(node1,node2,v);
-                ans+=wt;
-                
-            }
-        }
-       return ans;
+       
     }
     
     int dist(int x1,int y1,int x2,int y2){
