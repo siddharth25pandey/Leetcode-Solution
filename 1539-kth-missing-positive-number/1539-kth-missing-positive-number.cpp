@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findKthPositive(vector<int>& arr, int k) {
-        unordered_map<int,int>m;
+        /*unordered_map<int,int>m; // For unsorted
 	    for(auto &i:arr)m[i]++;
 	    int i=1;
             int c=0;
@@ -13,7 +13,9 @@ public:
             if(c==k)break;
            
         }
-        return i-1;
+        return i-1;*/
+        for (auto& i : arr) if (i <= k) k++;
+        return k;
 
     }
 };
