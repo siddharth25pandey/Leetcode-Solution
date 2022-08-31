@@ -14,7 +14,7 @@ public:
         int leftProd = 1;
         for(int i = 0; i < n; i++){
             ans[i] = leftProd * ans[i];
-            leftProd = leftProd * nums[i];
+            leftProd *= nums[i];
         }
         
         return ans;
