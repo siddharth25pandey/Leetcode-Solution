@@ -26,7 +26,7 @@ public:
         }
         for(auto &i:v)
         {
-          if(ans==NULL)
+          if(!ans)
           {
               ans= new ListNode(i);
               res=ans;
@@ -39,7 +39,7 @@ public:
             }
         }
         return res;*/
-         ListNode* cursor = head;
+         ListNode* cursor = head;  // To verify the elements less than or greater than K or not
         for(int i = 0; i < k; i++){
             if(!cursor) return head;
             cursor = cursor->next;
@@ -47,7 +47,7 @@ public:
         ListNode* curr = head;
         ListNode* prev = NULL;
         ListNode* nxt = NULL;
-        for(int i = 1; i <= k; i++){
+        for(int i = 1; i <= k; i++){ // Reversing K elements
             nxt = curr->next;
             curr->next = prev;
             prev = curr;
