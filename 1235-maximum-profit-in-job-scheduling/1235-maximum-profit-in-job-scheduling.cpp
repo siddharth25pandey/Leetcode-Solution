@@ -18,6 +18,8 @@ public:
 	}
 	return ans;
 }
+    
+    
     int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
         int n = startTime.size();
 	vector<vector<int>> jobs(n, vector<int>(3));
@@ -35,7 +37,7 @@ public:
 	dp[n-1] = jobs[n-1][2];
 	for(int i=n-1; i>=0; i--)
 	{
-		int next = getNextJob(jobs, i, n);  // Pick any one of the helper function
+		int next = getNextJob(jobs, i, n); 
 		int incl = dp[next] + jobs[i][2];
 		int excl = dp[i+1];
 		dp[i] = max(incl, excl);
